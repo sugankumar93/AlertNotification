@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+
+        
+        .HeaderNotification {
+            /* background: linear-gradient(38deg, rgba(227,123,0,1) 0%, rgba(22,68,155,1) 100%, rgba(0,212,255,1) 100%); */
+            padding: 8px;
+            background-color: #E37B00;
+            position: relative;
+        }
+        .SiderbarBody {
+            padding: 10px;
+        }
+        .SiderbarCloseIcon {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            font-size: 25px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .toggleNotification .fa-bell:before {
+            background-color: transparent;
+            font-size: 23px !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 19px;
+        }
+        .toggleNotification i {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #E37B00;
+            background-position: 50% 49%;
+            z-index: 99999 !important;
+            -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+            -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
+            -o-transition: all .3s cubic-bezier(.25,.8,.25,1);
+            transition: all .3s cubic-bezier(.25,.8,.25,1);
+            border-radius: 50px;
+        }
+        .toggleNotification {
+    color: #ffffff;
+    cursor: pointer;
+}
+        .ico {
+            margin-left: 7px;
+            margin-top: -4px;
+        }
+        .sidebarNotification {
+            position: fixed;
+            width: 400px;
+            right: -500px;
+            background-color: #F7F7F7;
+            height: 100%;
+            top: 0px;
+            z-index: 99999;
+            font-family: 'Lato', sans-serif;
+            -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+            /* box-shadow: 0 0 10pxrgba(0,0,0,.2); */
+        }
+            .sidebarNotification h2 {
+                color: #FFFFFF;
+                font-size: 20px;
+            }
+            .sidebarNotification.active {
+                right: 0px;
+            }
+        .notibox {
+            background: #FFFFFF;
+            padding: 15px;
+            border-radius: 2px;
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+            -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
+            -o-transition: all .3s cubic-bezier(.25,.8,.25,1);
+            transition: all .3s cubic-bezier(.25,.8,.25,1);
+        }
+        .cancelNotifiaction {
+            position: absolute;
+            right: 7px;
+            top: 10px;
+            cursor: pointer;
+            padding: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 20px;
+        }
+            .cancelNotifiaction:hover {
+                color: black;
+                background-color: white;
+            }
+        .gone {
+            display: none;
+        }
+        element.style {
+        }
+        .embed .featureDate .category:nth-of-type(1), .embed .featureDate .category:nth-of-type(2), .embed .featureDate .category:nth-of-type(3) {
+            display: inline-block;
+        }
+        body:not(.webkit-scroll):not(.forceScroll), body:not(.webkit-scroll):not(.forceScroll) *, body.embed:not(.webkit-scroll):not(.forceScroll) * {
+            scrollbar-width: none;
+        }
+        .embed .featureDate .category {
+            display: none;
+            position: relative;
+        }
+        .category.NEW, .category.new {
+            background: #FF5A80;
+        }
+        .category {
+            display: inline-block;
+            background: #8482F5;
+            padding: 4px 6px;
+            font-size: 10px;
+            color: #fff;
+            border-radius: 10px;
+            margin-right: 5px;
+            overflow: hidden;
+            text-transform: uppercase;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+            .category.NEW, .category.new {
+                background: #FF5A80;
+            }
+        .featureDate {
+            font-size: 14px;
+            color: #8DA2B5;
+            margin-bottom: 8px;
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: flex;
+            flex-wrap: nowrap;
+            text-transform: capitalize;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
+        }
+        .siderbarSearch {
+            position: absolute;
+            right: 45px;
+            top: 18px;
+            font-size: 22px;
+            color: #FFFFFF;
+            cursor:pointer;
+        }
+        .Notifi-Share {
+            position: absolute;
+            right: 5px;
+            cursor:pointer;
+        }
+            .Notifi-Share i {
+                color: #CCCCCC;
+                font-size: 22px;
+            }
+        .cancelNotifiaction i {
+            color: #e22c2c87;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="toggleNotification"><div class="ico"><i class="fas fa-bell"></i></div></div>
+
+    <div class="sidebarNotification">
+        <div class="HeaderNotification">
+            <h2>Notifications</h2>
+            <i class='bx bx-search siderbarSearch'></i>
+            <i class='bx bx-x SiderbarCloseIcon'></i>
+        </div>
+        <div class="SiderbarBody">
+            <div class="notibox">
+                <div class="featureDate">
+                    <div class="category categoryNew new">
+                        New
+                    </div>
+                    <span>September 23, 2022</span>
+                </div>
+                Wash the Car
+                <div class="cancelNotifiaction"><i class='bx bx-trash'></i></div>
+            </div>
+            <div class="notibox">
+                <div class="Notifi-Share"><i class='bx bx-share-alt'></i></div>
+                <div class="featureDate">
+                    <div class="category categoryNew new">
+                        New
+                    </div>
+                    <span>September 23, 2022</span>
+                </div>
+                The Enforce password history policy setting determines the number of unique new passwords that must be associated with a user account before an old password can be reused. Password reuse is an important concern in any organization. Many users want to reuse the same password for their account over a long period of time.
+            </div>
+            <div class="notibox">
+                <div class="Notifi-Share"><i class='bx bx-share-alt'></i></div>
+                <div class="featureDate">
+                    <div class="category categoryNew new">
+                        New
+                    </div>
+                    <span>September 23, 2022</span>
+                </div>
+                The Enforce password history policy setting determines the number of unique new passwords that must be associated with a user account before an old password can be reused. Password reuse is an important concern in any organization. Many users want to reuse the same password for their account over a long period of time.
+            </div>
+        </div>
+    </div>
+
+<script>
+
+$(".toggleNotification").click(function () {
+        $(".sidebarNotification").toggleClass('active');
+    });
+    $(".cancelNotifiaction").click(function () {
+        $(this).parent().toggleClass('gone');
+    });
+    $(".SiderbarCloseIcon").click(function () {
+        $(".sidebarNotification").toggleClass('active');
+    });
+
+</script>
+    
+</body>
+</html>
